@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>this is title</title>
+</head>
+<body>
+  <p>htmlWebpackPlugin.options.foo: foo</p>
+  <pre>JSON.stringify(htmlWebpackPlugin,null,2): 
+{
+  "tags": {
+    "headTags": [],
+    "bodyTags": [
+      {
+        "tagName": "script",
+        "voidTag": false,
+        "meta": {
+          "plugin": "html-webpack-plugin"
+        },
+        "attributes": {
+          "defer": true,
+          "src": "../index.js"
+        }
+      }
+    ]
+  },
+  "files": {
+    "publicPath": "../",
+    "js": [
+      "../index.js"
+    ],
+    "css": []
+  },
+  "options": {
+    "template": "M:\\Markdown笔记\\webpack\\code\\code11-HtmlWebpackPlugin\\node_modules\\html-webpack-plugin\\lib\\loader.js!M:\\Markdown笔记\\webpack\\code\\code11-HtmlWebpackPlugin\\src\\index.html",
+    "templateContent": false,
+    "filename": "./assets/index.html",
+    "publicPath": "auto",
+    "hash": false,
+    "inject": "body",
+    "scriptLoading": "defer",
+    "compile": true,
+    "favicon": false,
+    "minify": "auto",
+    "cache": true,
+    "showErrors": true,
+    "chunks": "all",
+    "excludeChunks": [],
+    "chunksSortMode": "auto",
+    "meta": {},
+    "base": false,
+    "title": "this is title",
+    "xhtml": false,
+    "foo": "foo"
+  }
+}</pre>
+  <div id="app"></div>
+<script defer src="../index.js"></script></body>
+</html>

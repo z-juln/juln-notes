@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./node_modules/react/umd/react.development.js"></script>
+  <script src="./node_modules/react-dom/umd/react-dom.development.js"></script>
+  <script src="./node_modules/babel-standalone/babel.js"></script>
+  <script src="./node_modules/prop-types/prop-types.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script type="text/babel">
+    // ReactDOM.render(
+    //   <h1>{['hello', ' ', 'world']}</h1>,
+    //   document.querySelector('#app')
+    // )
+
+    // function MyComp(props) {
+    //   return (
+    //     <div>
+    //       <p>id: {props.id}</p>
+    //       <p>name: {props.name}</p>
+    //       <p>age: {props.age}</p>
+    //     </div>
+    //   )
+    // }
+    // MyComp.defaultProps = {
+    //   id: 0
+    // }
+    // MyComp.propTypes = {
+    //   id: PropTypes.number.isRequired
+    // }
+
+    class MyComp extends React.Component {
+      state = {
+        value: 'this is value',
+        aTag: '<a href="https://www.baidu.com">this is anchor</a>'
+      }
+      constructor(props) {
+        super(props)
+        this.id = props.id
+        this.name = props.name
+        this.age = props.age
+        this.ageRef = React.createRef()
+      }
+      static defaultProps = {
+        id: 0
+      }
+      static propTypes = {
+        id: PropTypes.number.isRequired
+      }
+      setValue() {
+        this.setState({
+          value: '????'
+        })
+      }
+      render() {
+        const aTag = this.state.aTag
+        return (
+          <div>
+            <p ref="idDom">id: {this.props.id}</p>
+            <p ref={nameDom => this.nameDom = nameDom}>name: {this.props.name}</p>
+            <p ref={this.ageRef}>age: {this.props.age}</p>
+            <input type="text" onChange={this.setValue.bind(this)} value={this.state.value} />
+            <p>{aTag}</p>
+            <p dangerouslySetInnerHTML={{__html: aTag}}></p>
+            <button onClick={() => alert(this.refs.idDom.textContent)}>show id</button>
+            <button onClick={() => alert(this.nameDom.textContent)}>show name</button>
+            <button onClick={() => alert(this.ageRef.current.textContent)}>show age</button>
+            <div>
+                {
+                  /* if(this.state.bool) {
+                    <p>true</p>
+                  } else {
+                    <p>false</p>
+                  } */
+                }
+            </div>
+          </div>
+        )
+      }
+    }
+
+    const obj = {
+      name: 'juln',
+      age: 21
+    }
+
+    ReactDOM.render(
+      <MyComp {...obj} />,
+      document.querySelector('#app')
+    )
+  </script>
+</body>
+</html>
